@@ -26,10 +26,10 @@ function sendPostRequest(customerUuid) {
       variables: {
         customerUuid: customerUuid,
         updateCustomerInput: {
-          firstName: "dabba",
+          firstName: "dmx",
           lastName: "jon",
           preferredStoreId: null,
-          username: "dmxjon1+xxx@gmail.com"
+          username: "dmxjon1+1@gmail.com"
         }
       },
       query:
