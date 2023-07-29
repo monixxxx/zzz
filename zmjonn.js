@@ -1,6 +1,6 @@
 var req = new XMLHttpRequest(); 
 req.onload = reqListener; 
-req.open('GET','https://events.zoom.us/api/v1/e/getCurrentUser',true); 
+req.open('GET','https://events.zoom.us/api/v1/e/getCurrentUser',false); 
 req.withCredentials = true;
 req.send();
 
