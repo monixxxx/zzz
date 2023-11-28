@@ -1,4 +1,4 @@
-const apiUrl = 'https://uat-my2.veteransunited.com/api/v2/profiles/credentials';
+const apiUrl = 'https://my.veteransunited.com/api/v2/profiles/credentials';
 const token = JSON.parse(localStorage.getItem('okta-token-storage')).accessToken.accessToken;
 
 const requestData = {
@@ -17,11 +17,11 @@ fetch(apiUrl, {
     'Ngsw-Bypass': '',
     'Accept': 'application/json, text/plain, */*',
     'Sec-Ch-Ua-Platform': '"Windows"',
-    'Origin': 'https://uat-my2.veteransunited.com',
+    'Origin': 'https://my.veteransunited.com',
     'Sec-Fetch-Site': 'same-origin',
     'Sec-Fetch-Mode': 'cors',
     'Sec-Fetch-Dest': 'empty',
-    'Referer': 'https://uat-my2.veteransunited.com/profile',
+    'Referer': 'https://my.veteransunited.com/profile',
     'Accept-Encoding': 'gzip, deflate',
     'Accept-Language': 'en-US,en;q=0.9'
   },
@@ -37,7 +37,7 @@ fetch(apiUrl, {
     console.log('PATCH request successful:', data);
     
     // Redirect user to logout
-    window.location.href = 'https://uat-my2.veteransunited.com/logout';
+    window.location.href = 'https://my.veteransunited.com/logout';
   })
   .catch(error => {
     console.error('Error:', error);
