@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://paymetric/ems/2007-07/XiSecureWS.wsdl" xmlns:pmtypes="http://paymetric/2007-07/XiSecureWS.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" targetNamespace="http://paymetric/ems/2007-07/XiSecureWS.wsdl">
+  <wsdl:types>
+    <xs:schema>
+      <xs:import namespace="http://paymetric/2007-07/XiSecureWS.xsd" schemaLocation="XiSecureWS.xsd"/>
+      <xs:import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="pm_SingleEncryptRequest">
+    <wsdl:documentation>This message is used to encrypt one field of data (one credit card number) passed in by the client application</wsdl:documentation>
+    <wsdl:part name="sEncrypt_Input" element="pmtypes:sEncrypt_Input"/>
+  </wsdl:message>
+  <wsdl:message name="pm_SingleEncryptResponse">
+    <wsdl:documentation>This message is returned in response to pm_SingleEncrypt and contains .....</wsdl:documentation>
+    <wsdl:part name="sEncrypt_Output" element="pmtypes:sEncrypt_Output"/>
+  </wsdl:message>
+  <wsdl:message name="pm_SingleDecryptRequest">
+    <wsdl:documentation>This function is called when an application needs to decrypt a value that it has previously referenced
+		with its own generated unique lookup value.</wsdl:documentation>
+    <wsdl:part name="sDecrypt_Input" element="pmtypes:sDecrypt_Input"/>
+  </wsdl:message>
+  <wsdl:message name="pm_SingleDecryptResponse">
+    <wsdl:documentation>This message is returned in response to pm_SingleDecryptRequest and contains .....</wsdl:documentation>
+    <wsdl:part name="sDecrypt_Output" element="pmtypes:sDecrypt_Output"/>
+  </wsdl:message>
+  <wsdl:message name="pm_SingleEncryptByKeyRequest">
+    <wsdl:documentation>This method is used for application integrations where the token value will not be stored.  
+		Instead of a token, the application passes its own unique lookup key.</wsdl:documentation>
+    <wsdl:part name="sEncryptByKey_Input" element="pmtypes:sEncryptByKey_Input"/>
+  </wsdl:message>
+  <wsdl:message name="pm_SingleEncryptByKeyResponse">
+    <wsdl:documentation>This message is returned in response to pm_SingleEncryptByKeyRequest and contains .....</wsdl:documentation>
+    <wsdl:part name="sEncryptByKey_Output" element="pmtypes:sEncryptByKey_Output"/>
+  </wsdl:message>
+  <wsdl:message name="pm_SingleDecryptByKeyRequest">
+    <wsdl:documentation>This function is called when an application needs to decrypt a value that it has previously referenced
+		with its own generated unique lookup value.</wsdl:documentation>
+    <wsdl:part name="sDecryptByKey_Input" element="pmtypes:sDecryptByKey_Input"/>
+  </wsdl:message>
+  <wsdl:message name="pm_SingleDecryptByKeyResponse">
+    <wsdl:documentation>This message is returned in response to pm_SingleDecryptByKeyRequest and contains .....</wsdl:documentation>
+    <wsdl:part name="sDecryptByKey_Output" element="pmtypes:sDecryptByKey_Output"/>
+  </wsdl:message>
+  <wsdl:message name="pm_GetSearchCriteriaRequest">
+    <wsdl:documentation>This message is used to ......</wsdl:documentation>
+    <wsdl:part name="getSearchCriteria_Input" element="pmtypes:getSearchCriteria_Input"/>
+  </wsdl:message>
+  <wsdl:message name="pm_GetSearchCriteriaResponse">
+    <wsdl:documentation>This message is returned in response to pm_GetSearchCriteriaRequest and contains .....</wsdl:documentation>
+    <wsdl:part name="getSearchCriteria_Output" element="pmtypes:getSearchCriteria_Output"/>
+  </wsdl:message>
+  <wsdl:message name="WsHeaderIn">
+    <wsdl:part name="Security" element="wsse:Security"/>
+  </wsdl:message>
+  <wsdl:portType name="XiSecureWSPortType">
+    <wsdl:operation name="pm_SingleEncrypt">
+      <wsdl:input message="tns:pm_SingleEncryptRequest"/>
+      <wsdl:output message="tns:pm_SingleEncryptResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="pm_SingleDecrypt">
+      <wsdl:input message="tns:pm_SingleDecryptRequest"/>
+      <wsdl:output message="tns:pm_SingleDecryptResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="pm_SingleEncryptByKey">
+      <wsdl:input message="tns:pm_SingleEncryptByKeyRequest"/>
+      <wsdl:output message="tns:pm_SingleEncryptByKeyResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="pm_SingleDecryptByKey">
+      <wsdl:input message="tns:pm_SingleDecryptByKeyRequest"/>
+      <wsdl:output message="tns:pm_SingleDecryptByKeyResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="pm_GetSearchCriteria">
+      <wsdl:input message="tns:pm_GetSearchCriteriaRequest"/>
+      <wsdl:output message="tns:pm_GetSearchCriteriaResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="XiSecureWS" type="tns:XiSecureWSPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="pm_SingleEncrypt">
+      <soap:operation soapAction="http://paymetric/ems/2007-07/XiSecureWS.wsdl/pm_SingleEncrypt"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:WsHeaderIn" part="Security" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pm_SingleDecrypt">
+      <soap:operation soapAction="http://paymetric/ems/2007-07/XiSecureWS.wsdl/pm_SingleDecrypt"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:WsHeaderIn" part="Security" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pm_SingleEncryptByKey">
+      <soap:operation soapAction="http://paymetric/ems/2007-07/XiSecureWS.wsdl/pm_SingleEncryptByKey"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:WsHeaderIn" part="Security" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pm_SingleDecryptByKey">
+      <soap:operation soapAction="http://paymetric/ems/2007-07/XiSecureWS.wsdl/pm_SingleDecryptByKey"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:WsHeaderIn" part="Security" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pm_GetSearchCriteria">
+      <soap:operation soapAction="http://paymetric/ems/2007-07/XiSecureWS.wsdl/pm_GetSearchCriteria"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:WsHeaderIn" part="Security" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="XiSecureWSService">
+    <wsdl:documentation>Encryption and Decryption through XiSecure</wsdl:documentation>
+    <wsdl:port name="XiSecureWSServicePort" binding="tns:XiSecureWS">
+      <soap:address location="urn:unknown-location-uri"/>
+      <!-- 
+		 NOTE - you may have to edit the location attribute if your web service tool
+		 does not allow you to define the endpoint by a method other than setting it here.
+		 -->
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
